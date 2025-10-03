@@ -1,0 +1,332 @@
+[
+    {
+        "text": "There is a chimpanzee in this image.",
+        "entities": [
+            [
+                11,
+                21,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I can see a chimpanzee in the photo.",
+        "entities": [
+            [
+                12,
+                22,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "This picture contains a chimpanzee.",
+        "entities": [
+            [
+                24,
+                34,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "There is a coyote in this picture.",
+        "entities": [
+            [
+                12,
+                18,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I found a coyote in this image.",
+        "entities": [
+            [
+                9,
+                15,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "This photo clearly shows a coyote.",
+        "entities": [
+            [
+                27,
+                33,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A deer is visible in this picture.",
+        "entities": [
+            [
+                2,
+                6,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I can spot a deer in the photo.",
+        "entities": [
+            [
+                13,
+                17,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "This image includes a deer.",
+        "entities": [
+            [
+                22,
+                26,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "There is a duck in the picture.",
+        "entities": [
+            [
+                11,
+                15,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "You can see a duck in this image.",
+        "entities": [
+            [
+                14,
+                18,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A duck is present in this photograph.",
+        "entities": [
+            [
+                2,
+                6,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "An eagle appears in this picture.",
+        "entities": [
+            [
+                3,
+                8,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "This photo has an eagle in it.",
+        "entities": [
+            [
+                18,
+                23,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "There is an eagle in the image.",
+        "entities": [
+            [
+                12,
+                17,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "You can see an elephant in this picture.",
+        "entities": [
+            [
+                15,
+                23,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "An elephant is present in the photo.",
+        "entities": [
+            [
+                3,
+                11,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "There is an elephant in this image.",
+        "entities": [
+            [
+                12,
+                20,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A hedgehog is visible in this picture.",
+        "entities": [
+            [
+                2,
+                10,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "This photo has a hedgehog in it.",
+        "entities": [
+            [
+                17,
+                25,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I can see a hedgehog in this image.",
+        "entities": [
+            [
+                12,
+                20,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "There is a hippopotamus in this picture.",
+        "entities": [
+            [
+                11,
+                23,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A hippopotamus is clearly visible in this image.",
+        "entities": [
+            [
+                2,
+                14,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "This photo contains a hippopotamus.",
+        "entities": [
+            [
+                22,
+                34,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "You can find a kangaroo in this picture.",
+        "entities": [
+            [
+                15,
+                23,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "This image includes a kangaroo.",
+        "entities": [
+            [
+                22,
+                30,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A kangaroo appears in this photo.",
+        "entities": [
+            [
+                2,
+                10,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "There is a rhinoceros in this image.",
+        "entities": [
+            [
+                11,
+                21,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A rhinoceros is clearly visible in this picture.",
+        "entities": [
+            [
+                2,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "This photo contains a rhinoceros.",
+        "entities": [
+            [
+                22,
+                32,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I see a tiger in this image.",
+        "entities": [
+            [
+                8,
+                13,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "This picture has a tiger in it.",
+        "entities": [
+            [
+                19,
+                24,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A tiger is present in this photo.",
+        "entities": [
+            [
+                2,
+                7,
+                "ANIMAL"
+            ]
+        ]
+    }
+]

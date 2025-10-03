@@ -1,0 +1,1052 @@
+[
+    {
+        "text": "I saw a chimpanzee climbing a tree.",
+        "entities": [
+            [
+                8,
+                18,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The chimpanzee was eating bananas.",
+        "entities": [
+            [
+                4,
+                14,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Chimpanzees are intelligent animals.",
+        "entities": [
+            [
+                0,
+                11,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A group of chimpanzees was making loud noises.",
+        "entities": [
+            [
+                11,
+                22,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I watched a documentary about chimpanzees.",
+        "entities": [
+            [
+                30,
+                41,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A chimpanzee can use tools to get food.",
+        "entities": [
+            [
+                2,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "We watched a playful chimpanzee at the zoo.",
+        "entities": [
+            [
+                21,
+                31,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Chimpanzees are intelligent animals.",
+        "entities": [
+            [
+                0,
+                11,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A coyote ran across the road.",
+        "entities": [
+            [
+                2,
+                8,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I heard a coyote howling at night.",
+        "entities": [
+            [
+                10,
+                16,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Coyotes live in the wild and hunt for food.",
+        "entities": [
+            [
+                0,
+                7,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The coyote was looking for food.",
+        "entities": [
+            [
+                4,
+                10,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Have you ever seen a coyote in real life?",
+        "entities": [
+            [
+                21,
+                27,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A coyote was hunting in the desert.",
+        "entities": [
+            [
+                2,
+                8,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I heard a coyote howling at night.",
+        "entities": [
+            [
+                10,
+                16,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Coyotes are found in North America.",
+        "entities": [
+            [
+                0,
+                7,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A coyote ran across the road.",
+        "entities": [
+            [
+                2,
+                8,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Coyotes adapt well to urban areas.",
+        "entities": [
+            [
+                0,
+                7,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A deer jumped over the fence.",
+        "entities": [
+            [
+                2,
+                6,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The deer was grazing in the field.",
+        "entities": [
+            [
+                4,
+                8,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I spotted a group of deer in the forest.",
+        "entities": [
+            [
+                21,
+                25,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Deer are common in this area.",
+        "entities": [
+            [
+                0,
+                4,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A baby deer is called a fawn.",
+        "entities": [
+            [
+                7,
+                11,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The deer was grazing near the river.",
+        "entities": [
+            [
+                4,
+                8,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I saw a deer in the forest.",
+        "entities": [
+            [
+                8,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Deer are common in this region.",
+        "entities": [
+            [
+                0,
+                4,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A deer crossed the road suddenly.",
+        "entities": [
+            [
+                2,
+                6,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The deer had large antlers.",
+        "entities": [
+            [
+                4,
+                8,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I saw a duck swimming in the lake.",
+        "entities": [
+            [
+                8,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The duck quacked loudly.",
+        "entities": [
+            [
+                4,
+                8,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Ducks are often found in ponds.",
+        "entities": [
+            [
+                0,
+                5,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A mother duck protects her ducklings.",
+        "entities": [
+            [
+                9,
+                13,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Have you ever fed ducks at the park?",
+        "entities": [
+            [
+                18,
+                23,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A duck was swimming in the pond.",
+        "entities": [
+            [
+                2,
+                6,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The duck quacked loudly.",
+        "entities": [
+            [
+                4,
+                8,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I saw a duck at the lake.",
+        "entities": [
+            [
+                8,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Ducks migrate during the winter.",
+        "entities": [
+            [
+                0,
+                5,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A mother duck led her ducklings.",
+        "entities": [
+            [
+                9,
+                13,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "An eagle soared high in the sky.",
+        "entities": [
+            [
+                3,
+                8,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The eagle caught a fish.",
+        "entities": [
+            [
+                4,
+                9,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Eagles have excellent vision.",
+        "entities": [
+            [
+                0,
+                6,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I saw a golden eagle in the mountains.",
+        "entities": [
+            [
+                15,
+                20,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Eagles build nests on tall cliffs.",
+        "entities": [
+            [
+                0,
+                6,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The eagle soared above the mountains.",
+        "entities": [
+            [
+                4,
+                9,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I saw an eagle catching a fish.",
+        "entities": [
+            [
+                9,
+                14,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Eagles have excellent vision.",
+        "entities": [
+            [
+                0,
+                6,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "An eagle built a nest on the cliff.",
+        "entities": [
+            [
+                3,
+                8,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The eagle spread its wings wide.",
+        "entities": [
+            [
+                4,
+                9,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "An elephant was drinking water.",
+        "entities": [
+            [
+                3,
+                11,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Elephants are the largest land animals.",
+        "entities": [
+            [
+                0,
+                9,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I saw a herd of elephants in the zoo.",
+        "entities": [
+            [
+                16,
+                25,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The elephant used its trunk to grab food.",
+        "entities": [
+            [
+                4,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Elephants have strong memories.",
+        "entities": [
+            [
+                0,
+                9,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The elephant sprayed water with its trunk.",
+        "entities": [
+            [
+                4,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I saw a baby elephant at the zoo.",
+        "entities": [
+            [
+                13,
+                21,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Elephants have strong memories.",
+        "entities": [
+            [
+                0,
+                9,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "An elephant walked through the jungle.",
+        "entities": [
+            [
+                3,
+                11,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The elephant flapped its ears.",
+        "entities": [
+            [
+                4,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A hedgehog curled into a ball.",
+        "entities": [
+            [
+                2,
+                10,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I saw a hedgehog in my backyard.",
+        "entities": [
+            [
+                8,
+                16,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Hedgehogs have spiky fur.",
+        "entities": [
+            [
+                0,
+                9,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The hedgehog was hiding under the leaves.",
+        "entities": [
+            [
+                4,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Hedgehogs are nocturnal animals.",
+        "entities": [
+            [
+                0,
+                9,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A hedgehog rolled into a ball.",
+        "entities": [
+            [
+                2,
+                10,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The hedgehog has sharp spines.",
+        "entities": [
+            [
+                4,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Hedgehogs are nocturnal animals.",
+        "entities": [
+            [
+                0,
+                9,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I saw a tiny hedgehog in the garden.",
+        "entities": [
+            [
+                13,
+                21,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The hedgehog was hiding under the leaves.",
+        "entities": [
+            [
+                4,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A hippopotamus was resting in the water.",
+        "entities": [
+            [
+                2,
+                14,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Hippopotamuses spend most of their time in water.",
+        "entities": [
+            [
+                0,
+                14,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I saw a baby hippopotamus at the zoo.",
+        "entities": [
+            [
+                13,
+                25,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Hippopotamuses have powerful jaws.",
+        "entities": [
+            [
+                0,
+                14,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A hippopotamus can run surprisingly fast.",
+        "entities": [
+            [
+                2,
+                14,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A hippopotamus was bathing in the river.",
+        "entities": [
+            [
+                2,
+                14,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The hippopotamus is a large mammal.",
+        "entities": [
+            [
+                4,
+                16,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The hippopotamus yawned widely.",
+        "entities": [
+            [
+                4,
+                16,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A kangaroo hopped across the field.",
+        "entities": [
+            [
+                2,
+                10,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Kangaroos carry their babies in pouches.",
+        "entities": [
+            [
+                0,
+                9,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I saw a kangaroo at the wildlife park.",
+        "entities": [
+            [
+                8,
+                16,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The kangaroo was eating grass.",
+        "entities": [
+            [
+                4,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Kangaroos are native to Australia.",
+        "entities": [
+            [
+                0,
+                9,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The kangaroo carried a baby in its pouch.",
+        "entities": [
+            [
+                4,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Kangaroos are strong jumpers.",
+        "entities": [
+            [
+                0,
+                9,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I saw a kangaroo boxing with another one.",
+        "entities": [
+            [
+                8,
+                16,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The kangaroo was resting in the shade.",
+        "entities": [
+            [
+                4,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A rhinoceros was drinking water.",
+        "entities": [
+            [
+                2,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Rhinoceroses have thick skin.",
+        "entities": [
+            [
+                0,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I saw a white rhinoceros at the zoo.",
+        "entities": [
+            [
+                14,
+                24,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Rhinoceroses use their horns for defense.",
+        "entities": [
+            [
+                0,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A baby rhinoceros stays close to its mother.",
+        "entities": [
+            [
+                7,
+                17,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A rhinoceros has a thick skin.",
+        "entities": [
+            [
+                2,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The rhinoceros was drinking water.",
+        "entities": [
+            [
+                4,
+                14,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Rhinoceroses have a strong horn.",
+        "entities": [
+            [
+                0,
+                12,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I saw a huge rhinoceros at the safari.",
+        "entities": [
+            [
+                13,
+                23,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The rhinoceros charged at the jeep.",
+        "entities": [
+            [
+                4,
+                14,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A tiger was stalking its prey.",
+        "entities": [
+            [
+                2,
+                7,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Tigers are powerful hunters.",
+        "entities": [
+            [
+                0,
+                6,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I saw a Bengal tiger at the zoo.",
+        "entities": [
+            [
+                15,
+                20,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The tiger roared loudly.",
+        "entities": [
+            [
+                4,
+                9,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Tigers have distinctive stripes.",
+        "entities": [
+            [
+                0,
+                6,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "A tiger was stalking its prey.",
+        "entities": [
+            [
+                2,
+                7,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The tiger roared loudly in the jungle.",
+        "entities": [
+            [
+                4,
+                9,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "Tigers are excellent hunters.",
+        "entities": [
+            [
+                0,
+                6,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "I saw a white tiger at the zoo.",
+        "entities": [
+            [
+                14,
+                19,
+                "ANIMAL"
+            ]
+        ]
+    },
+    {
+        "text": "The tiger pounced on its prey.",
+        "entities": [
+            [
+                4,
+                9,
+                "ANIMAL"
+            ]
+        ]
+    }
+]
