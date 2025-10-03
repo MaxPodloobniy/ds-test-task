@@ -1048,5 +1048,165 @@
                 "ANIMAL"
             ]
         ]
+    },
+    {
+        "text": "The sun was shining brightly.",
+        "entities": []
+    },
+    {
+        "text": "She poured herself a cup of coffee.",
+        "entities": []
+    },
+    {
+        "text": "They walked to the store together.",
+        "entities": []
+    },
+    {
+        "text": "It started raining in the evening.",
+        "entities": []
+    },
+    {
+        "text": "The computer was running slowly.",
+        "entities": []
+    },
+    {
+        "text": "He bought a new phone yesterday.",
+        "entities": []
+    },
+    {
+        "text": "The train arrived five minutes late.",
+        "entities": []
+    },
+    {
+        "text": "She was reading a book in the library.",
+        "entities": []
+    },
+    {
+        "text": "The meeting lasted for two hours.",
+        "entities": []
+    },
+    {
+        "text": "I need to buy some bread from the market.",
+        "entities": []
+    },
+    {
+        "text": "The movie was more interesting than I expected.",
+        "entities": []
+    },
+    {
+        "text": "He closed the window because it was cold.",
+        "entities": []
+    },
+    {
+        "text": "They decorated the house with colorful lights.",
+        "entities": []
+    },
+    {
+        "text": "The teacher explained the lesson clearly.",
+        "entities": []
+    },
+    {
+        "text": "He finished his homework before dinner.",
+        "entities": []
+    },
+    {
+        "text": "The music was too loud at the party.",
+        "entities": []
+    },
+    {
+        "text": "She wore a red dress to the wedding.",
+        "entities": []
+    },
+    {
+        "text": "The flight was delayed due to bad weather.",
+        "entities": []
+    },
+    {
+        "text": "He forgot his keys on the kitchen table.",
+        "entities": []
+    },
+    {
+        "text": "The clock on the wall had stopped working.",
+        "entities": []
+    },
+    {
+        "text": "They planted flowers in the backyard.",
+        "entities": []
+    },
+    {
+        "text": "The package was delivered in the morning.",
+        "entities": []
+    },
+    {
+        "text": "He looked at the stars through a telescope.",
+        "entities": []
+    },
+    {
+        "text": "She turned off the light before leaving.",
+        "entities": []
+    },
+    {
+        "text": "The city was crowded during the holiday.",
+        "entities": []
+    },
+    {
+        "text": "He saved the document on his laptop.",
+        "entities": []
+    },
+    {
+        "text": "They painted the walls of the living room.",
+        "entities": []
+    },
+    {
+        "text": "The festival attracted thousands of visitors.",
+        "entities": []
+    },
+    {
+        "text": "She opened the letter with excitement.",
+        "entities": []
+    },
+    {
+        "text": "The road was closed because of construction.",
+        "entities": []
+    },
+    {
+        "text": "He sat quietly in the corner of the room.",
+        "entities": []
+    },
+    {
+        "text": "The phone rang in the middle of the night.",
+        "entities": []
+    },
+    {
+        "text": "She bought a gift for her best friend.",
+        "entities": []
+    },
+    {
+        "text": "The shop closed earlier than usual.",
+        "entities": []
+    },
+    {
+        "text": "He listened carefully to the instructions.",
+        "entities": []
+    },
+    {
+        "text": "The storm caused a power outage in the town.",
+        "entities": []
+    },
+    {
+        "text": "She placed the vase on the wooden shelf.",
+        "entities": []
+    },
+    {
+        "text": "The restaurant was full of people at lunch.",
+        "entities": []
+    },
+    {
+        "text": "He watched the sunset from the balcony.",
+        "entities": []
+    },
+    {
+        "text": "The student asked a question during the lecture.",
+        "entities": []
     }
 ]

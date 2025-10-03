@@ -328,5 +328,45 @@
                 "ANIMAL"
             ]
         ]
+    },
+    {
+        "text": "The conference will start at nine o'clock.",
+        "entities": []
+    },
+    {
+        "text": "She wrote her notes in a small notebook.",
+        "entities": []
+    },
+    {
+        "text": "The door was locked when he arrived.",
+        "entities": []
+    },
+    {
+        "text": "They watched the fireworks from the bridge.",
+        "entities": []
+    },
+    {
+        "text": "The library closed earlier than expected.",
+        "entities": []
+    },
+    {
+        "text": "He turned the page slowly and kept reading.",
+        "entities": []
+    },
+    {
+        "text": "The street was empty late at night.",
+        "entities": []
+    },
+    {
+        "text": "She left her umbrella at the office.",
+        "entities": []
+    },
+    {
+        "text": "The presentation included several graphs and charts.",
+        "entities": []
+    },
+    {
+        "text": "The phone battery died during the call.",
+        "entities": []
     }
 ]
