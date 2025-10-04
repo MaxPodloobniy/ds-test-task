@@ -1,16 +1,10 @@
 import spacy
 import argparse
 
-# Path to the custom model
-CUSTOM_MODEL_PATH = "models/ner/custom_ner_model"
 
-# List of animals we are looking for
-animals = {"chimpanzee", "coyote", "deer", "duck", "eagle", "elephant", "hedgehog", "kangaroo", "rhinoceros", "tiger"}
-
-
-def extract_animals(text):
+def extract_animals(text, model_path):
     """Function to extract animals from text using ONLY the custom model."""
-    nlp = spacy.load(CUSTOM_MODEL_PATH)
+    nlp = spacy.load(model_path)
 
     # Process the text
     doc = nlp(text)
@@ -21,10 +15,15 @@ def extract_animals(text):
     return found_animals
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="NER for animal extraction.")
-    parser.add_argument("text", type=str, help="Input text for NER")
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('text', type=str, help="Input text for NER")
+    parser.add_argument('--model_path', type=str, default='custom_ner_model/')
     args = parser.parse_args()
 
-    animals_found = extract_animals(args.text)
+    animals_found = extract_animals(args.text, args.model_path)
     print("Found animals:", animals_found)
+
+
+if __name__ == "__main__":
+    main()
