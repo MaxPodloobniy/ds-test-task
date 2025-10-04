@@ -51,7 +51,7 @@ def main():
     args = parse_args()
 
     # Load the base model
-    nlp = load_or_download_model("en_core_web_sm")
+    nlp = load_or_download_model("en_core_web_md")
 
     # Add NER component if not already present
     if "ner" not in nlp.pipe_names:
