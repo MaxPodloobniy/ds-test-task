@@ -3,14 +3,17 @@ import random
 import os
 import json
 import argparse
+import subprocess
+import sys
 from spacy.training.example import Example
 from spacy.scorer import Scorer
+from spacy.util import minibatch, compounding
 
 
 def parse_args():
     """Function for parsing arguments"""
     parser = argparse.ArgumentParser()
-    parser.add_argument('--epochs', type=int, default=10)
+    parser.add_argument('--epochs', type=int, default=5)
     parser.add_argument('--dropout', type=float, default=0.3)
     parser.add_argument('--model_path', type=str, default='custom_ner_model/')
     parser.add_argument('--train_data', type=str, default='data_for_ner/train.json')
@@ -30,12 +33,25 @@ def load_data(filepath):
 
     return data
 
+def load_or_download_model(model_name):
+    """Load spaCy model, download if not available"""
+    try:
+        nlp = spacy.load(model_name)
+        print(f"Model '{model_name}' loaded")
+        return nlp
+    except OSError:
+        print(f"Downloading model '{model_name}'...")
+        subprocess.check_call([sys.executable, "-m", "spacy", "download", model_name])
+        nlp = spacy.load(model_name)
+        print(f"Model '{model_name}' downloaded and loaded")
+        return nlp
+
 def main():
     # Loading all arguments
     args = parse_args()
 
     # Load the base model
-    nlp = spacy.load("en_core_web_trf")
+    nlp = load_or_download_model("en_core_web_sm")
 
     # Add NER component if not already present
     if "ner" not in nlp.pipe_names:
@@ -48,19 +64,33 @@ def main():
 
     # Load training dataset
     train_dataset = load_data(args.train_data)
+    test_dataset = load_data(args.test_data)
+
+    print("Train dataset length:", len(train_dataset))
+    print("Test dataset length:", len(test_dataset))
+
+    # Prepare training examples for initialization
+    train_examples = []
+    for text, annotations in train_dataset:
+        doc = nlp.make_doc(text)
+        example = Example.from_dict(doc, annotations)
+        train_examples.append(example)
 
     # Disable other pipelines to prevent unnecessary retraining
     other_pipes = [pipe for pipe in nlp.pipe_names if pipe != "ner"]
     with nlp.disable_pipes(*other_pipes):
-        optimizer = nlp.initialize()
+        optimizer = nlp.initialize(get_examples=lambda: train_examples)
 
         # Training loop
         for i in range(args.epochs):
-            random.shuffle(train_dataset)
+            random.shuffle(train_examples)
             losses = {}
-            for text, annotations in train_dataset:
-                example = Example.from_dict(nlp.make_doc(text), annotations)
-                nlp.update([example], drop=args.dropout, losses=losses)
+
+            # Update in batches for better stability
+            batches = minibatch(train_examples, size=compounding(2.0, 8.0, 1.001))
+            for batch in batches:
+                nlp.update(batch, drop=args.dropout, losses=losses, sgd=optimizer)
+
             print(f"Iteration {i + 1}, Loss: {losses['ner']}")
 
         # Save the model
@@ -77,12 +107,11 @@ def main():
             print(f"Error loading saved model: {e}")
 
     # Testing saved model
-    test_dataset = load_data(args.test_data)
-
     print("\n📊 Evaluating on test data...")
     examples = []
     for text, annotations in test_dataset:
-        doc = nlp.make_doc(text)
+        doc = nlp(text)
+
         example = Example.from_dict(doc, annotations)
         examples.append(example)
 
