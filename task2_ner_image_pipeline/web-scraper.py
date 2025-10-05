@@ -11,13 +11,27 @@ import argparse
 from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
 
+# Configuration
+SCROLL_DISTANCE = 4000
+INITIAL_WAIT = 5
+SCROLL_WAIT = 2
+DOWNLOAD_DELAY = 1
+SCROLL_PROGRESS_INTERVAL = 10
+DOWNLOAD_PROGRESS_INTERVAL = 100
+
 
 def parse_args():
     """Parse command line arguments."""
+    animals = [
+        "chimpanzee", "coyote", "deer", "duck", "eagle", "elephant",
+        "hedgehog", "hippopotamus", "kangaroo", "rhinoceros", "tiger"
+    ]
+
     parser = argparse.ArgumentParser(description='Scrape Pinterest images')
-    parser.add_argument('--animals', nargs='+', required=True, help='List of animals to search')
+    parser.add_argument('--animals', nargs='+', default=animals, help='List of animals to search')
     parser.add_argument('--scroll_times', type=int, default=50, help='Number of times to scroll')
     parser.add_argument('--output_dir', type=str, default='pinterest_dataset', help='Base directory to save images')
+
     return parser.parse_args()
 
 
@@ -34,7 +48,7 @@ def run_scraper(search_query, scroll_times):
         except Exception as e:
             print(f"Failed to load Pinterest for '{search_query}': {e}")
             return []
-        time.sleep(5)
+        time.sleep(INITIAL_WAIT)
 
         print("Scrolling the page...")
         post_links = set()
@@ -42,8 +56,8 @@ def run_scraper(search_query, scroll_times):
         # Collect links after each scroll
         for i in range(scroll_times):
             # Scroll down
-            page.mouse.wheel(0, 4000)
-            time.sleep(2)
+            page.mouse.wheel(0, SCROLL_DISTANCE)
+            time.sleep(SCROLL_WAIT)
 
             # Extract links after each scroll
             html = page.content()
@@ -53,8 +67,8 @@ def run_scraper(search_query, scroll_times):
                 if '/pin/' in link['href']:
                     post_links.add("https://www.pinterest.com" + link['href'])
 
-            # Print progress every 10 scrolls
-            if (i + 1) % 10 == 0:
+            # Print progress
+            if (i + 1) % SCROLL_PROGRESS_INTERVAL == 0:
                 print(f"Scrolled {i + 1} times, found {len(post_links)} unique links")
 
         context.close()
@@ -115,9 +129,9 @@ def download_images(post_links, save_path):
                         file.write(chunk)
 
                 count += 1
-                if count % 100 == 0:
+                if count % DOWNLOAD_PROGRESS_INTERVAL == 0:
                     print(f"Saved {count} images out of {len(post_links)}")
-                time.sleep(1)
+                time.sleep(DOWNLOAD_DELAY)
             except requests.exceptions.RequestException as e:
                 failed += 1
                 print(f"Error downloading {img_url}: {e}")
@@ -130,16 +144,10 @@ def download_images(post_links, save_path):
 
 def main():
     args = parse_args()
-
-    animals = [
-        "chimpanzee", "coyote", "deer", "duck", "eagle", "elephant",
-        "hedgehog", "hippopotamus", "kangaroo", "rhinoceros", "tiger"
-    ]
-
     total_saved = 0
     total_failed = 0
 
-    for animal in animals:
+    for animal in args.animals:
         print(f"\nSearching for images of {animal}")
         search_query = f"Photo of {animal}"
 
