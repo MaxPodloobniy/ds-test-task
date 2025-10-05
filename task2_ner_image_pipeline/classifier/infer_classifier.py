@@ -11,7 +11,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Inference image classification model')
 
     parser.add_argument('--image_path', type=str, required=True, help='Path to image')
-    parser.add_argument('--model_path', type=str, default='classifier_model.keras', help='Path to model')
+    parser.add_argument('--model_path', type=str, default='model/classifier_model.keras', help='Path to model')
 
     return parser.parse_args()
 

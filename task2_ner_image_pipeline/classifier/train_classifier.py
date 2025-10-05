@@ -20,7 +20,7 @@ def parse_args():
     parser.add_argument('--val_batch_size', type=int, default=2)
     parser.add_argument('--learning_rate', type=float, default=1e-4)
     parser.add_argument('--epochs', type=int, default=100)
-    parser.add_argument('--model_save_path', type=str, default='classifier_model.keras')
+    parser.add_argument('--model_save_path', type=str, default='model/classifier_model.keras')
 
     return parser.parse_args()
 
