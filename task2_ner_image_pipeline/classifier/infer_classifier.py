@@ -2,8 +2,8 @@ import os
 import argparse
 import json
 import numpy as np
-import tensorflow as tf
 from tensorflow.keras.utils import load_img, img_to_array
+from tensorflow.keras.models import load_model
 
 
 def parse_args():
@@ -46,7 +46,7 @@ def main():
         class_indices = json.load(f)
 
     # Load the model
-    model = tf.keras.models.load_model(args.model_path)
+    model = load_model(args.model_path)
 
     # Load the image
     input_shape = model.input_shape[1:3]  # (height, width)
@@ -57,7 +57,7 @@ def main():
     predicted_class = idx_to_class[np.argmax(predictions)]
     confidence = np.max(predictions)
 
-    print(f"Predicted class: {predicted_class} (confidence: {confidence:.2%})")
+    print(f"\nPredicted class: {predicted_class} (confidence: {confidence:.2%})")
 
 
 if __name__ == "__main__":

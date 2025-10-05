@@ -26,7 +26,6 @@ def parse_args():
 
 
 def main():
-    """Train image classification model using VGG16 transfer learning."""
     # Loading all arguments
     args = parse_args()
 
