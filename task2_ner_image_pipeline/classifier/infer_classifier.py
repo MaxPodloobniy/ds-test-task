@@ -37,28 +37,24 @@ def main():
         raise FileNotFoundError(f"Model not found: {args.model_path}")
 
     # Check if classes exists
-    if not os.path.exists(args.model_path.replace('.keras', '_classes.json')):
-        raise FileNotFoundError(f"Model not found: {args.model_path}")
-
-    # Load class names
     classes_path = args.model_path.replace('.keras', '_classes.json')
     if not os.path.exists(classes_path):
-        raise FileNotFoundError(f"Class names file not found: {classes_path}")
+        raise FileNotFoundError(f"Class names file not found: {args.model_path}")
 
+    # Load class names
     with open(classes_path, 'r') as f:
         class_indices = json.load(f)
-
-    # Invert dict: {class_name: idx} -> {idx: class_name}
-    CLASS_NAMES = {v: k for k, v in class_indices.items()}
 
     # Load the model
     model = tf.keras.models.load_model(args.model_path)
 
+    # Load the image
     input_shape = model.input_shape[1:3]  # (height, width)
     img_array = preprocess_image(args.image_path, input_shape)
 
     predictions = model.predict(img_array, verbose=0)
-    predicted_class = CLASS_NAMES[np.argmax(predictions)]
+    idx_to_class = list(class_indices.keys())  # ['chimpanzee', 'coyote', ...]
+    predicted_class = idx_to_class[np.argmax(predictions)]
     confidence = np.max(predictions)
 
     print(f"Predicted class: {predicted_class} (confidence: {confidence:.2%})")
