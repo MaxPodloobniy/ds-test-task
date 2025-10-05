@@ -12,6 +12,7 @@ from sklearn.model_selection import train_test_split
 def parse_args():
     """Function for parsing arguments"""
     parser = argparse.ArgumentParser()
+
     parser.add_argument('--dataset_path', type=str, required=True, help='Path to dataset directory')
     parser.add_argument('--img_size', type=int, default=224)
     parser.add_argument('--test_split', type=float, default=0.2)
@@ -19,8 +20,8 @@ def parse_args():
     parser.add_argument('--val_batch_size', type=int, default=2)
     parser.add_argument('--learning_rate', type=float, default=1e-4)
     parser.add_argument('--epochs', type=int, default=100)
-    parser.add_argument('--finetune_from_layer', type=int, default=15)
     parser.add_argument('--model_save_path', type=str, default='classifier_model.keras')
+
     return parser.parse_args()
 
 
@@ -88,9 +89,9 @@ def main():
     )
 
     # Fine-tune only the first 15 layers
-    for layer in base_model.layers[:args.finetune_from_layer]:
+    for layer in base_model.layers[:15]:
         layer.trainable = True
-    for layer in base_model.layers[args.finetune_from_layer:]:
+    for layer in base_model.layers[15:]:
         layer.trainable = False
 
     # Build the new model
