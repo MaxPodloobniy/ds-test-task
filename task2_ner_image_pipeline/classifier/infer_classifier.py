@@ -1,29 +1,32 @@
 import os
-import sys
 import argparse
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # Suppresses most warnings
+
+def parse_args():
+    """Parse command line arguments for training."""
+    parser = argparse.ArgumentParser(description='Inference image classification model')
+
+    parser.add_argument('--image_path', type=str, required=True, help='Path to image')
+    parser.add_argument('--model_path', type=str, default='classifier_model.keras', help='Path to model')
+
+    return parser.parse_args()
 
 
 def main():
+    os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # Suppresses most warnings
+    args = parse_args()
+
     # Load the model
-    MODEL_PATH = "models/classifier/best_classifier_model.keras"
-    model = tf.keras.models.load_model(MODEL_PATH)
+    model = tf.keras.models.load_model(args.model_path)
 
     # Classes used during training
     CLASS_NAMES = ['chimpanzee', 'coyote', 'deer', 'duck', 'eagle', 'elephant', 'hedgehog', 'kangaroo', 'rhinoceros',
                    'tiger']
 
-    if len(sys.argv) < 2:
-        print("Error: No image path provided!")
-        sys.exit(1)
-
-    image_path = sys.argv[1]
-
-    img = image.load_img(image_path, target_size=(224, 224))
+    img = image.load_img(args.image_path, target_size=(224, 224))
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
     img_array /= 255.0
