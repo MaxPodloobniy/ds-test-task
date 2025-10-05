@@ -1,14 +1,24 @@
-from playwright.sync_api import sync_playwright
-from bs4 import BeautifulSoup
-import requests
+"""
+Pinterest image scraper for collecting animal images.
+
+This script uses Playwright to scrape Pinterest search results
+and download high-resolution images.
+"""
 import time
 import os
+import requests
+import argparse
+from playwright.sync_api import sync_playwright
+from bs4 import BeautifulSoup
 
 
-def create_folder(path):
-    """Creates a folder if it does not exist."""
-    if not os.path.exists(path):
-        os.makedirs(path)
+def parse_args():
+    """Parse command line arguments."""
+    parser = argparse.ArgumentParser(description='Scrape Pinterest images')
+    parser.add_argument('--animals', nargs='+', required=True, help='List of animals to search')
+    parser.add_argument('--scroll_times', type=int, default=50, help='Number of times to scroll')
+    parser.add_argument('--output_dir', type=str, default='pinterest_dataset', help='Base directory to save images')
+    return parser.parse_args()
 
 
 def run_scraper(search_query, scroll_times):
@@ -19,7 +29,11 @@ def run_scraper(search_query, scroll_times):
         page = context.new_page()
 
         print("Opening Pinterest...")
-        page.goto(f"https://www.pinterest.com/search/pins/?q={search_query}")
+        try:
+            page.goto(f"https://www.pinterest.com/search/pins/?q={search_query}", timeout=30000)
+        except Exception as e:
+            print(f"Failed to load Pinterest for '{search_query}': {e}")
+            return []
         time.sleep(5)
 
         print("Scrolling the page...")
@@ -78,7 +92,9 @@ def get_high_res_image(pin_url):
 
 def download_images(post_links, save_path):
     """Downloads images from extracted Pinterest links and saves them locally."""
-    create_folder(save_path)
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
+
     count = 0
     failed = 0
 
@@ -112,14 +128,13 @@ def download_images(post_links, save_path):
     return count, failed
 
 
-if __name__ == "__main__":
+def main():
+    args = parse_args()
+
     animals = [
-        "antelope", "bison", "chimpanzee", "cow", "coyote", "deer", "donkey", "duck",
-        "eagle", "elephant", "gorilla", "hedgehog", "hippopotamus", "hyena",
-        "kangaroo", "racoon", "rhinoceros", "tiger", "turkey", "wolf"
+        "chimpanzee", "coyote", "deer", "duck", "eagle", "elephant",
+        "hedgehog", "hippopotamus", "kangaroo", "rhinoceros", "tiger"
     ]
-    scroll_times = 50
-    base_path = "pinterest_dataset"
 
     total_saved = 0
     total_failed = 0
@@ -128,9 +143,9 @@ if __name__ == "__main__":
         print(f"\nSearching for images of {animal}")
         search_query = f"Photo of {animal}"
 
-        save_path = os.path.join(base_path, animal)
+        save_path = os.path.join(args.output_dir, animal)
 
-        post_links = run_scraper(search_query, scroll_times)
+        post_links = run_scraper(search_query, args.scroll_times)
         print(f"Found {len(post_links)} unique links")
 
         saved, failed = download_images(post_links, save_path)
@@ -140,3 +155,7 @@ if __name__ == "__main__":
     print(f"\nOverall Statistics:")
     print(f"Total images saved: {total_saved}")
     print(f"Total errors: {total_failed}")
+
+
+if __name__ == "__main__":
+    main()
