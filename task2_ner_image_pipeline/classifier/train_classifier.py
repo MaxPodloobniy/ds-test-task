@@ -1,11 +1,12 @@
+import os
+import argparse
+import json
+import pandas as pd
 import tensorflow as tf
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
 from sklearn.model_selection import train_test_split
-import os
-import pandas as pd
-import argparse
 
 
 def parse_args():
@@ -66,13 +67,18 @@ def main():
         y_col="class",
         target_size=(args.img_size, args.img_size),
         batch_size=args.val_batch_size,
-        shuffle=True,
+        shuffle=False,
         seed=42,
         class_mode="categorical"
     )
 
     print(f'Train generator classes: {train_generator.class_indices}')
     print(f'Validation generator classes: {valid_generator.class_indices}')
+
+    # Save class indices for inference
+    class_indices_path = args.model_save_path.replace('.keras', '_classes.json')
+    with open(class_indices_path, 'w') as f:
+        json.dump(train_generator.class_indices, f, indent=4)
 
     # Load VGG16 model without the fully connected layers
     base_model = tf.keras.applications.VGG16(
