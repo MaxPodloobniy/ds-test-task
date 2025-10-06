@@ -5,6 +5,7 @@ This script loads a trained spaCy model and identifies entities labeled as "ANIM
 within a given text input.
 """
 import argparse
+import os
 import logging
 import spacy
 
@@ -13,6 +14,14 @@ logger = logging.getLogger(__name__)
 
 def extract_animals(text, model_path):
     """Function to extract animals from text using ONLY the custom model."""
+    # Check if model exists
+    if not os.path.exists(model_path):
+        raise FileNotFoundError(f"Model not found: {model_path}")
+
+    # Check if text is not empty
+    if text == "":
+        raise ValueError("Input text must be a non-empty string.")
+
     nlp = spacy.load(model_path)
 
     # Process the text
