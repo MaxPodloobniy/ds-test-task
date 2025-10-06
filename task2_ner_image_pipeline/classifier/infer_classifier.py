@@ -25,37 +25,44 @@ def preprocess_image(image_path, target_size):
     return img_array
 
 
-def main():
-    args = parse_args()
-
+def classify_image(image_path, model_path):
+    """Checks if all files exist, load model and classes and make a prediction on the image"""
     # Check if image exists
-    if not os.path.exists(args.image_path):
-        raise FileNotFoundError(f"Image not found: {args.image_path}")
+    if not os.path.exists(image_path):
+        raise FileNotFoundError(f"Image not found: {image_path}")
 
     # Check if model exists
-    if not os.path.exists(args.model_path):
-        raise FileNotFoundError(f"Model not found: {args.model_path}")
+    if not os.path.exists(model_path):
+        raise FileNotFoundError(f"Model not found: {model_path}")
 
     # Check if classes exists
-    classes_path = args.model_path.replace('.keras', '_classes.json')
+    classes_path = model_path.replace('.keras', '_classes.json')
     if not os.path.exists(classes_path):
-        raise FileNotFoundError(f"Class names file not found: {args.model_path}")
+        raise FileNotFoundError(f"Class names file not found: {classes_path}")
 
     # Load class names
     with open(classes_path, 'r') as f:
         class_indices = json.load(f)
 
     # Load the model
-    model = load_model(args.model_path)
+    model = load_model(model_path)
 
     # Load the image
     input_shape = model.input_shape[1:3]  # (height, width)
-    img_array = preprocess_image(args.image_path, input_shape)
+    img_array = preprocess_image(image_path, input_shape)
 
     predictions = model.predict(img_array, verbose=0)
     idx_to_class = list(class_indices.keys())  # ['chimpanzee', 'coyote', ...]
     predicted_class = idx_to_class[np.argmax(predictions)]
     confidence = np.max(predictions)
+
+    return predicted_class, confidence
+
+
+def main():
+    args = parse_args()
+
+    predicted_class, confidence = classify_image(args.image_path, args.model_path)
 
     print(f"\nPredicted class: {predicted_class} (confidence: {confidence:.2%})")
 
