@@ -35,8 +35,8 @@ def extract_animals(text, model_path):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('text', type=str, help="Input text for NER")
-    parser.add_argument('--model_path', type=str, default='custom_ner_model/')
+    parser.add_argument('--text', type=str, required=True, help="Input text for NER")
+    parser.add_argument('--model_path', type=str, default='model/')
     args = parser.parse_args()
 
     animals_found = extract_animals(args.text, args.model_path)
