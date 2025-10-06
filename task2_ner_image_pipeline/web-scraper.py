@@ -8,16 +8,19 @@ import time
 import os
 import requests
 import argparse
+import logging
 from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
 
-# Configuration
+# Configuration constants
 SCROLL_DISTANCE = 4000
 INITIAL_WAIT = 5
 SCROLL_WAIT = 2
 DOWNLOAD_DELAY = 1
 SCROLL_PROGRESS_INTERVAL = 10
 DOWNLOAD_PROGRESS_INTERVAL = 100
+
+logger = logging.getLogger(__name__)
 
 
 def parse_args():
@@ -42,24 +45,21 @@ def run_scraper(search_query, scroll_times):
         context = browser.new_context()
         page = context.new_page()
 
-        print("Opening Pinterest...")
+        logger.info("Opening Pinterest...")
         try:
             page.goto(f"https://www.pinterest.com/search/pins/?q={search_query}", timeout=30000)
         except Exception as e:
-            print(f"Failed to load Pinterest for '{search_query}': {e}")
+            logger.error(f"Failed to load Pinterest for '{search_query}': {e}")
             return []
         time.sleep(INITIAL_WAIT)
 
-        print("Scrolling the page...")
+        logger.info("Scrolling the page...")
         post_links = set()
 
-        # Collect links after each scroll
         for i in range(scroll_times):
-            # Scroll down
             page.mouse.wheel(0, SCROLL_DISTANCE)
             time.sleep(SCROLL_WAIT)
 
-            # Extract links after each scroll
             html = page.content()
             soup = BeautifulSoup(html, 'html.parser')
 
@@ -67,9 +67,8 @@ def run_scraper(search_query, scroll_times):
                 if '/pin/' in link['href']:
                     post_links.add("https://www.pinterest.com" + link['href'])
 
-            # Print progress
             if (i + 1) % SCROLL_PROGRESS_INTERVAL == 0:
-                print(f"Scrolled {i + 1} times, found {len(post_links)} unique links")
+                logger.info(f"Scrolled {i + 1} times, found {len(post_links)} unique links")
 
         context.close()
         browser.close()
@@ -88,7 +87,6 @@ def get_high_res_image(pin_url):
 
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        # Try to find the image in different ways
         meta_tag = soup.find("meta", property="og:image")
         if meta_tag:
             return meta_tag["content"]
@@ -98,9 +96,9 @@ def get_high_res_image(pin_url):
             return img_tag["src"]
 
     except requests.exceptions.RequestException as e:
-        print(f"Error loading page {pin_url}: {e}")
+        logger.error(f"Error loading page {pin_url}: {e}")
     except Exception as e:
-        print(f"Unexpected error processing {pin_url}: {e}")
+        logger.error(f"Unexpected error processing {pin_url}: {e}")
     return None
 
 
@@ -112,7 +110,7 @@ def download_images(post_links, save_path):
     count = 0
     failed = 0
 
-    print(f"Starting download of {len(post_links)} images...")
+    logger.info(f"Starting download of {len(post_links)} images...")
 
     for pin_url in post_links:
         img_url = get_high_res_image(pin_url)
@@ -130,15 +128,15 @@ def download_images(post_links, save_path):
 
                 count += 1
                 if count % DOWNLOAD_PROGRESS_INTERVAL == 0:
-                    print(f"Saved {count} images out of {len(post_links)}")
+                    logger.info(f"Saved {count} images out of {len(post_links)}")
                 time.sleep(DOWNLOAD_DELAY)
             except requests.exceptions.RequestException as e:
                 failed += 1
-                print(f"Error downloading {img_url}: {e}")
+                logger.error(f"Error downloading {img_url}: {e}")
         else:
             failed += 1
 
-    print(f"Download complete. Saved: {count}, Errors: {failed}")
+    logger.info(f"Download complete. Saved: {count}, Errors: {failed}")
     return count, failed
 
 
@@ -148,22 +146,26 @@ def main():
     total_failed = 0
 
     for animal in args.animals:
-        print(f"\nSearching for images of {animal}")
+        logger.info(f"\nSearching for images of {animal}")
         search_query = f"Photo of {animal}"
 
         save_path = os.path.join(args.output_dir, animal)
 
         post_links = run_scraper(search_query, args.scroll_times)
-        print(f"Found {len(post_links)} unique links")
+        logger.info(f"Found {len(post_links)} unique links")
 
         saved, failed = download_images(post_links, save_path)
         total_saved += saved
         total_failed += failed
 
-    print(f"\nOverall Statistics:")
-    print(f"Total images saved: {total_saved}")
-    print(f"Total errors: {total_failed}")
+    logger.info("\nOverall Statistics:")
+    logger.info(f"Total images saved: {total_saved}")
+    logger.info(f"Total errors: {total_failed}")
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(message)s"
+    )
     main()

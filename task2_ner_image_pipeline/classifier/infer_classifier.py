@@ -1,9 +1,19 @@
+"""
+Image classification inference script.
+
+This script loads a trained Keras image classification model and predicts
+the animal class from a given image, returning the predicted class
+and confidence score.
+"""
 import os
 import argparse
 import json
+import logging
 import numpy as np
 from tensorflow.keras.utils import load_img, img_to_array
 from tensorflow.keras.models import load_model
+
+logger = logging.getLogger(__name__)
 
 
 def parse_args():
@@ -61,11 +71,14 @@ def classify_image(image_path, model_path):
 
 def main():
     args = parse_args()
-
     predicted_class, confidence = classify_image(args.image_path, args.model_path)
-
-    print(f"\nPredicted class: {predicted_class} (confidence: {confidence:.2%})")
+    logger.info(f"Predicted class: {predicted_class} (confidence: {confidence:.2%})")
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(message)s"
+    )
+
     main()

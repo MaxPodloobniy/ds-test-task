@@ -1,5 +1,14 @@
-import spacy
+"""
+Named Entity Recognition (NER) inference script for extracting animal names.
+
+This script loads a trained spaCy model and identifies entities labeled as "ANIMAL"
+within a given text input.
+"""
 import argparse
+import logging
+import spacy
+
+logger = logging.getLogger(__name__)
 
 
 def extract_animals(text, model_path):
@@ -22,8 +31,13 @@ def main():
     args = parser.parse_args()
 
     animals_found = extract_animals(args.text, args.model_path)
-    print("Found animals:", animals_found)
+    logger.info(f"Found animals: {animals_found}")
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(message)s"
+    )
+
     main()
