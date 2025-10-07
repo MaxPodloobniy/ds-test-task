@@ -15,6 +15,7 @@ import tensorflow as tf
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
+from tensorflow.keras.metrics import Precision, Recall, AUC, TopKCategoricalAccuracy
 from sklearn.model_selection import train_test_split
 
 logger = logging.getLogger(__name__)
@@ -136,9 +137,16 @@ def main():
 
     # Compile model
     logger.info(f"Compiling model with learning_rate={args.learning_rate}")
-    model.compile(optimizer=Adam(args.learning_rate),
-                  loss="categorical_crossentropy",
-                  metrics=["accuracy"])
+    model.compile(
+        optimizer=Adam(args.learning_rate),
+        loss="categorical_crossentropy",
+        metrics=[
+            "accuracy",
+            Precision(name="precision"),
+            Recall(name="recall"),
+            AUC(name="auc"),
+        ]
+    )
 
     # Callbacks
     logger.info("Setting up callbacks")
