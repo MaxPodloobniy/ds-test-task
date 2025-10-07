@@ -11,8 +11,6 @@ import random
 import os
 import json
 import argparse
-import subprocess
-import sys
 import logging
 from spacy.training.example import Example
 from spacy.scorer import Scorer
