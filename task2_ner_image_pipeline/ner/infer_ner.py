@@ -19,7 +19,7 @@ def extract_animals(text, model_path):
         raise FileNotFoundError(f"Model not found: {model_path}")
 
     # Check if text is not empty
-    if text == "":
+    if not isinstance(text, str) or not text.strip():
         raise ValueError("Input text must be a non-empty string.")
 
     nlp = spacy.load(model_path)
@@ -35,7 +35,7 @@ def extract_animals(text, model_path):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--text', type=str, required=True, help="Input text for NER")
+    parser.add_argument('text', type=str, required=True, help="Input text for NER")
     parser.add_argument('--model_path', type=str, default='model/')
     args = parser.parse_args()
 
