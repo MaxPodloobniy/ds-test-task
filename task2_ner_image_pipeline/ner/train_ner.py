@@ -24,9 +24,9 @@ logger = logging.getLogger(__name__)
 def parse_args():
     """Function for parsing arguments"""
     parser = argparse.ArgumentParser()
-    parser.add_argument('--epochs', type=int, default=5)
+    parser.add_argument('--epochs', type=int, default=7)
     parser.add_argument('--dropout', type=float, default=0.3)
-    parser.add_argument('--model_path', type=str, default='custom_ner_model/')
+    parser.add_argument('--model_path', type=str, default='model/')
     parser.add_argument('--train_data', type=str, default='data_for_ner/train.json')
     parser.add_argument('--test_data', type=str, default='data_for_ner/test.json')
     return parser.parse_args()
@@ -47,19 +47,24 @@ def load_data(filepath):
     return data
 
 
-def load_or_download_model(model_name):
-    """Load spaCy model, download if not available"""
+def load_or_download_model(model_name: str):
+    """
+    Load a spaCy model if available.
+    If not, print an instruction to install it manually.
+    """
     try:
         logger.info(f"Attempting to load model '{model_name}'")
         nlp = spacy.load(model_name)
         logger.info(f"Model '{model_name}' loaded successfully")
         return nlp
     except OSError:
-        logger.info(f"Model '{model_name}' not found. Downloading...")
-        subprocess.check_call([sys.executable, "-m", "spacy", "download", model_name])
-        nlp = spacy.load(model_name)
-        logger.info(f"Model '{model_name}' downloaded and loaded successfully")
-        return nlp
+        message = (
+            f"\n[ERROR] spaCy model '{model_name}' not found.\n"
+            f"Please install it manually by running:\n\n"
+            f"    python -m spacy download {model_name}\n"
+        )
+        logger.error(message)
+        raise RuntimeError(f"spaCy model '{model_name}' is missing. Install it and rerun the program.")
 
 
 def main():
